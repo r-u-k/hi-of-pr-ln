@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Основная страница</title>
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+    <style>
+        body{
+            background: linear-gradient(to right, rgb(188, 215, 255) 10%, rgb(255, 255, 255) 30%, rgb(255, 255, 255) 70%, rgb(188, 215, 255) 90%);
+        }
+        main{
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+        .t{
+            display: block;
+            box-sizing: border-box;
+            height: 100px;
+            width: 100%;
+            outline: 4px solid rgb(2, 76, 156);
+            background: radial-gradient(30vw 50pt,rgb(255, 255, 255),rgb(188, 215, 255));
+            border-radius: 10px;
+            color: rgb(0, 0, 0);
+            padding-top: 25px;
+            box-shadow: 0 0 20px;
+        }
+        .introduction{
+            font-size: 18pt;
+        }
+        .introduction a{
+            text-decoration: none;
+            color: rgb(0, 56, 121);
+            text-shadow: 1px 0px 0px 1px;
+        }
+        .menu{
+            margin-top: 5%
+        }
+        .menu a{
+            display: block;
+            border: 4px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            margin-top: 25px;
+            box-sizing: border-box;
+            height: 130px;
+            width: 35vw;
+            padding-top: 5%;
+            font-size: 22pt;
+            color: rgb(0, 0, 0);
+            background: radial-gradient(30vw 80pt,rgb(255, 255, 255),rgb(188, 215, 255));
+            cursor: pointer;
+            text-decoration: none;
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            box-shadow: 0 0 15px;
+        }
+        .menu a:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+            vertical-align: middle;
+        }
+        .menu a.l_C{
+            background-image: url(fon-С.png);
+            background-size: 100% 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+        .menu a.l_Java{
+            background-image: url(fon-java.png);
+            background-size: 100% 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+        .menu a.l_Python{
+            background-image: url(fon-python.png);
+            background-size: 100% 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="t">
+            <p align="center" style="font-size: 28pt; font-weight: bold; margin: 0px;">О сайте</p>
+        </div>
+        <div class="introduction" align="center">
+            <p style="text-align: justify;">
+                На данном сайте рассматривается история трёх языков программирования: <dfn>C</dfn>, <dfn>Java</dfn> и <dfn>Python</dfn>.
+                Данные языки были выбраны, в осном, из-за их большой популярности. По данным журнала <i><a href="https://spectrum.ieee.org/top-programming-languages/">IEEE Spectrum</a></i> и <i><a href="https://tiobe.com/tiobe-index/">индекса TIOBE</a></i> они занимают первые 3 места среди всех языков программирования по популярности.
+                Истории каждого языка на сайте расположены на отдельных страницах, поделённых на 4 раздела: краткая информация о создателе или создателях языка, причины разработки языка, языки, которые легли в основу или сильно повлияли на язык, и развитие языка.
+            </p>
+        </div>
+        <div class="menu" align="center">
+            <a class="l_C" href="C2.html#history_C">История языка программирования C</a>
+            <a class="l_Java" href="Java2.html#history_Java">История языка программирования Java</a>
+            <a class="l_Python" href="Python2.html#history_Python">История языка программирования Python</a>
+        </div>
+    </main>
+</body>
+</html>

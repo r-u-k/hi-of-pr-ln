@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Исторя языка программирования Java</title>
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+    <style>
+       html {
+        scroll-behavior: smooth;
+        }
+        .menu {
+            width: 33%;
+            height: 100vh;
+            margin-left: -10px;
+            margin-top: -10px;
+            float: left;
+            font-style: normal;
+            position: fixed;
+            border-right: 4px solid rgb(2, 76, 156);
+            box-sizing: content-box;
+            padding-bottom: 30px;
+            background: linear-gradient(to right, rgb(2, 76, 156) -4%, rgb(188, 215, 255) 7%);
+        }
+        .menu::-webkit-scrollbar{
+            width: 0px;
+        }
+        .menuhead {
+            margin-bottom: 30px;
+            border-bottom: 4px solid rgb(2, 76, 156);
+        }
+        .menu a {
+            background-color: rgb(197, 214, 240);
+            outline: 2px solid rgb(2, 76, 156);
+            color: rgb(0, 0, 0);
+            display: block;
+            box-sizing: border-box;
+            padding: 3px 15px;
+            font-size: 20pt;
+            margin-top: 10px;
+            margin-left: 7%;
+            margin-right: 7%;
+            border-radius: 10px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0px 0 10px;
+        }
+        .menu a:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_C{
+            color: rgb(0, 0, 0);
+            display: block;
+            box-sizing: border-box;
+            padding: 10px 15px;
+            outline: 4px solid rgb(2, 76, 156);
+            font-size: 25pt;
+            margin-top: 15px;
+            margin-left: 3%;
+            margin-right: 3%;
+            border-radius: 10pt;
+            cursor: pointer;
+            box-shadow: 0px 0 15px;
+            background-image: url(fon-С.png);
+            background-size: 100% 100%;
+            background-position: center center;
+        }
+        .menu_C:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_C.current{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_Java{
+            color: rgb(0, 0, 0);
+            display: block;
+            box-sizing: border-box;
+            padding: 10px 15px;
+            outline: 4px solid rgb(2, 76, 156);
+            font-size: 25pt;
+            margin-top: 20px;
+            margin-left: 3%;
+            margin-right: 3%;
+            border-radius: 10pt;
+            cursor: pointer;
+            box-shadow: 0px 0 15px;
+            background-image: url(fon-java.png);
+            background-size: 100% 100%;
+            background-position: center center;
+        }
+        .menu_Java:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_Java.current{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_Python{
+            color: rgb(0, 0, 0);
+            display: block;
+            box-sizing: border-box;
+            padding: 10px 15px;
+            outline: 4px solid rgb(2, 76, 156);
+            font-size: 25pt;
+            margin-top: 20px;
+            margin-left: 3%;
+            margin-right: 3%;
+            border-radius: 10pt;
+            cursor: pointer;
+            box-shadow: 0px 0 15px;
+            background-image: url(fon-python.png);
+            background-size: 100% 100%;
+            background-position: center center;
+        }
+        .menu_Python:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_Python.current{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu a.othlan {
+            padding: 10px 15px;
+            outline: 4px solid rgb(2, 76, 156);
+            font-size: 25pt;
+            margin-left: 3%;
+            margin-right: 3%;
+            margin-top: 15px;
+        }
+        .menu a.home{
+            height: 70px;
+            margin-top: 100px;
+            padding-top: 20px;
+            background: radial-gradient(70% 40%,rgb(255, 255, 255),rgb(188, 215, 255));
+        }
+        .hide{
+            display: none;
+        }
+        .hide + label ~ div{
+            display: none;
+        }
+        .hide:checked + label + div{
+            display: block;
+        }
+        .hide2{
+            display: none;
+        }
+        .hide2 + label ~ div{
+            display: block;
+        }
+        .hide2:checked + label + div{
+            display: none;
+        }
+        .hide3{
+            display: none;
+        }
+        .hide3 + label ~ div{
+            display: none;
+        }
+        .hide3:checked + label + div{
+            display: block;
+        }
+        .pheader {
+            margin-left: 34vw;
+            margin-right: 0%;
+            margin-top: -8px;
+            margin-bottom: 100px;
+            height: 80px;
+            width: 63vw;
+            border: 4px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-sizing: border-box;
+            position: fixed;
+            display: inline-block;
+            box-shadow: 0 0 15px;            
+            background-image: url("header-fon-Java.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        main {
+            box-sizing: border-box;
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-top: 80px;
+            padding-bottom: 20px;
+            background: linear-gradient(to right, rgb(188, 215, 255) 1%, #ffffff 10%, #ffffff 90%, rgba(188, 215, 255, 0.5) 99%);
+            text-shadow: none;
+        }
+        p {
+            text-indent: 25px;
+            font-size: 18pt;
+            text-align: justify;
+        }
+        body {
+            background-color: rgb(188, 215, 255);
+            background: linear-gradient(to right, rgb(188, 215, 255) 99%, rgb(2, 76, 156) 105%);
+        }
+        .down {
+            margin-left: 0px;
+            margin-top: auto;
+            width: 100%;
+            outline: 4px solid rgb(2, 76, 156);
+            display: none;
+        }
+        i{
+            position:absolute;
+            top:-80px;
+        }
+        section{
+            position:absolute;
+            top:-80px; 
+        }
+        .yakor{
+            margin-bottom:10px;
+            position:relative;
+        }
+        .cl_a_op{
+            display: inline-block;
+            position: absolute;
+            margin-left: 3vw;
+            margin-top: 20px;
+            width: 10vw;
+            height: 40px;
+            border: 2px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-shadow: 0 0 10px;
+            background: radial-gradient(70% 40%,rgb(255, 255, 255),rgb(188, 215, 255));
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .cl_a_op:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .to_top{
+            display: inline-block;
+            position: absolute;
+            right: 3vw;
+            margin-top: 20px;
+            width: 10vw;
+            height: 29px;
+            border: 2px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-shadow: 0 0 10px;
+            background: radial-gradient(70% 40%,rgb(255, 255, 255),rgb(188, 215, 255));
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            cursor: pointer;
+            padding-top: 11px;
+            text-decoration: none;
+        }
+        .to_top:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 2px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 15px;
+            text-shadow: 0 0 1px;
+        }
+        .next{
+            display: inline-block;
+            margin-left: 67%;
+            margin-right: -3%;
+            width: 10vw;
+            height: 29px;
+            border: 2px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-shadow: 0 0 10px;
+            background: radial-gradient(70% 40%,rgb(255, 255, 255),rgb(188, 215, 255));
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            cursor: pointer;
+            padding-top: 11px;
+            text-decoration: none;
+        }
+        .next:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 2px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 15px;
+            text-shadow: 0 0 1px;
+        }
+        .prev{
+            display: inline-block;
+            margin-left: -3%;
+            margin-right: 0px;
+            width: 10vw;
+            height: 29px;
+            border: 2px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-shadow: 0 0 10px;
+            background: radial-gradient(70% 40%,rgb(255, 255, 255),rgb(188, 215, 255));
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            cursor: pointer;
+            padding-top: 11px;
+            text-decoration: none;
+        }
+        .prev:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 2px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 15px;
+            text-shadow: 0 0 1px;
+        }
+        img{
+            margin: 0px 0px 0px 30px;
+            outline: 3px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-shadow: 0 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu" style="overflow-y:scroll;display:none" id="p_menu">
+        <div class="menuhead">
+            <h1 align="center" style="font-size: 35pt; color: rgb(0, 0, 0);">Навигация</h1>
+        </div>
+        <input type="checkbox" id="ha1" class="hide">
+        <label for="ha1" class="menu_C" align="center">История языка C</label>
+        <div>
+            <a href="C2.html#icreators_C">1. Создатели языка C</a></li>
+            <a href="C2.html#ireasons_C">2. Причины разработки языка C</a></li>
+            <a href="C2.html#ipredecessors_C">3. Языки предшественники</a></li>
+            <a href="C2.html#idevelopment_C">4. Развитие языка C</a>
+        </div>
+        <input type="checkbox" id="ha2" class="hide2">
+        <label for="ha2" class="menu_Java current" align="center">История языка Java</label>
+        <div>
+            <a href="Java2.html#icreators_Java">1. Создатель языка Java</a>
+            <a href="Java2.html#ireasons_Java">2. Причины разработки языка Java</a>
+            <a href="Java2.html#ipredecessors_Java">3. Языки предшественники</a>
+            <a href="Java2.html#idevelopment_Java">4. Развитие языка Java</a>
+        </div>
+        <input type="checkbox" id="ha3" class="hide3">
+        <label for="ha3" class="menu_Python" align="center">История языка Python</label>
+        <div>
+            <a href="Python2.html#creators_Python">1. Создатель языка Python</a>
+            <a href="Python2.html#reasons_Python">2. Причины разработки языка Python</a>
+            <a href="Python2.html#predecessors_Python">3. Языки предшественники</a>
+            <a href="Python2.html#development_Python">4. Развитие языка Python</a>
+        </div>
+        <a class="home" href="index.html" align="center">Вводная страница</a>
+    </div>
+    <div class="pheader" id="p_name" style="margin: -8px 0px 100px 10vw; width: 80vw;">
+        <button class="cl_a_op" onclick="toggle_visibility('p_menu'); toggle_position('chapos'); toggle_position_2('p_name'); toggle_width('chapos'); toggle_width('p_name')">Навигация</button>
+        <a class="to_top" align="center" href="#icreators_Java">Наверх</a>
+        <h1 align="center" style="margin-top: 8;"><a name="history_Java">История языка Java</a></h1>
+    </div>
+    <main id="chapos" style="margin: 0px 0px 0px 10vw; width: 80vw;">
+        <p class="yakor">
+            <i id="icreators_Java"></i>
+            <h2 align="center">Создатель языка Java</h2>
+        </p>
+        <div>
+            <img src="james-gosling.jpg" alt="Здесь что-то должно быть" title="Джеймс Гослинг" height="300px" style="float: right;">
+            <p>
+                Язык программирования Java был разработан в американской компании Sun Microsystem, основанной в 1982 году, занимающейся разработкой и продажей технологий в областях телекоммуникации, компьютерной техники и программного обеспечения. Разработал язык программист Джеймс Артур Гослинг (James Arthur Gosling), родившийся 19 мая 1955 года в Канадском городе Калгари. В 1977 он окончил Университет Калгари, во время учёбы в котором он помог с созданием программы для обработки данных со спутника ISIS 2 (International Satellites for Ionospheric Studies). В 1983 Джеймс закончил университет Карнеги-Меллона (Carnegie Mellon University), где получил докторскую степень за защиту диссертации на тему «Алгебраическая манипуляция ограничениями» (в оригинале: The Algebraic Manipulation of Constraints). До этого, в 1981 году, Гослинг с помощью языка C создал Gosling Emacs – первую вариацию текстового редактора Emacs, функционирующую на операционной системе Unix. В 1984 году Джеймс устраивается на работу в Sun Microsystem, где в 1986, совместно с Дэвидом Стюарт Холмс Розенталем (David Stuart Holmes Rosenthal) разработал оконную систему, то есть программное обеспечение, способное к одновременному раздельному управлению различными частями экрана, NeWS (Network extensible Window System). В 2007 году был награждён Орденом Канады (Order of Canada), высшей гражданской наградой Канады, за вклад, внесённый в развитие компьютерных наук, а в 2015 году – Медалью Джона фон Неймана (Institute of Electrical and Electronics Engineers John von Neumann Medal).
+            </p>
+        </div>
+        <p class="yakor">
+            <i id="ireasons_Java"></i>
+            <h2 align="center">Причины разработки языка Java</h2>
+        </p>
+        <div>
+            <img src="Duke_(Java_mascot)_waving.svg.png" alt="Здесь что-то должно быть" title="Duke - программный помошник устройства Star7, ставший потом маскотом Java" height="400px" style="float: right;">
+            <p>
+                Создание языка программирования Java напрямую связано с проектом Green, который был начат Sun Microsystem в 1991 году, ведь Java был создан Гослингом именно для реализации данного проекта. Основной задачей проекта стало создание устройства, которое позволило бы компании закрепиться на рынке бытовой техники. Проект возглавляли Патрик Нотон (Patrick Naughton), Майк Шеридан (Mike Sheridan) и Джеймс Гослинг. Последний утверждал, что происходит постоянное улучшение электронного и цифрового наполнения бытовой техники, то есть по пути компьютеризации электронных домовых приборов. В связи с данным предположением, было решено разработать устройство, с помощью которого пользователь мог бы дистанционно управлять окружающей бытовой техникой. В данной разработке особенно важным элементом был язык программирования, который позволял бы запускать необходимое программное обеспечение практически на любом процессоре, и при этом иметь возможность объединять все устройства в единую сеть. Изначально на роль языка для разработки программного обеспечения для устройства был выбран C++, но вскоре стало понятно, что, используя этот язык, поставленную задачу невозможно выполнить, так как C++ не обладал достаточным уровнем портативности и совместимости созданного на нём программного обеспечения. В связи с чем Джеймс Гослинг начал разработку нового языка программирования, и в 1992 создал язык Oak, в дальнейшем, в именно в 1995 году, сменивший название на Java. Но получившаяся разработка не обрела коммерческого успеха, из-за ранней стадии развития отрасли, а также дороговизны устройства. Тогда, из-за всё нарастающей популярности интернета, а точнее «Всемирной паутины» (World Wide Web), в 1993 году командой разработчиков проекта Green было решено создать браузер, который, используя возможности предназначенного для сетевой работы языка Oak, позволил бы увеличить безопасность передачи данных между сервером и клиентами, а также поддерживающий возможность создания любого интерфейса веб-страницы, и использование на ней анимации. Дальнейший рост популярности и востребованности языка Java основан именно на его использовании в данном браузере, имевшим название WebRunner, переименованный в HotJava.
+            </p>
+        </div>
+        <p class="yakor">
+            <i id="ipredecessors_Java"></i>
+            <h2 align="center">Языки предшественники</h2>
+        </p>
+        <div>
+            <img src="C++_syntax.png" alt="Здесь что-то должно быть" title="Пример синтаксиса языка C++" height="150px" style="float: right;">
+            <p>
+                Языком, оказавшим наибольшее влияние на Java, является C++, созданный в 1980 году для личных нужд сотрудником компании Bell Labs Бьёрном Страуструпом (Bjarne Stroustrup) на основе языка программирования C, и называющийся на тот момент «C с классами» («C with Classes»). Влияние C++ сразу же видно в синтаксисе Java. Визуально код на языке Java похож на код языка C, но не всегда. Причиной этого является желание Гослинга сделать код Java как можно более понятным для программистов, работающих с языками C и C++. При этом различий между языками довольно много. C++ является компилируемым языком программирования, то есть его программа во время выполнения преобразуется программой компилятором в машинный код, выполняемый компьютером. Программа на языке Java компилируется в специальный байт-код, который в дальнейшем передается виртуальной машине Java (Java Virtual Machine). Данное программное производит интерпретацию байт-кода программы, а именно перевод программы в машинный код и её построчное выполнение, при этом оно поддерживается на всех основных операционных системах, что позволяет один из основных принципов языка Java: «Написал однажды, запускаешь везде» (Write once, run anywhere), так как JVM любого устройства сможет выполнить переданную ей программу. Также Java, в отличии от C++, является полностью объектно-ориентированным языком программирования. Это означает, что основными элементами языка являются: объекты – структуры, которые имеют определённые свойства и способы взаимодействия с собой, методы – функции, описывающие работу с определенными объектами, классы – описание свойств однотипных объектов и методов работы с ними. Написать программу на языке Java без использования этих элементов невозможно, но в C++ это возможно, так как он является объектно-ориентированным языком только частично, многое сохранив от процедурного, то есть основанного на отдельных операторах и командах, которые можно собирать в независимые подпрограммы - процедуры, языка C. Остальные отличия, такие как отсутствие в Java указателей, невозможность использовать системные библиотеки и жёсткая стандартизация всех элементов языка, уже не являются настолько значимыми, как вышеуказанные.
+            </p>
+        </div>
+        <p class="yakor">
+            <i id="idevelopment_Java"></i>
+            <h2 align="center">Развитие языка Java</h2>
+        </p>
+        <div>
+            <p>
+                Первая версия Java – Java 1.0 – вышла в 1996 году в составе набора разработчика Java, или же JDK (Java Development Kit), версии 1.0. JDK – программное обеспечение, которое позволяет вести разработку приложений и апплетов, программ, запускающихся в браузере, состоящее из двух основных элементов: инструменты разработки Java (Java Development Tools), включающие в себя инструменты для разработки приложения, такие как компилятор написанной программы в байт-код, и среду выполнения Java (Java Runtime Environment), которая используется для запуска приложений и содержит виртуальную машину Java и необходимые для работы приложений Java библиотеки. JDK в дальнейшем всегда будет иметь ту же версию, что и язык. Через год выходит версия Java 1.1, которая, совместно с версией 1.0, называют Java 1. В версии 1.1 к основе языка из версии 1.0 были сделаны несколько добавлений. В ней была улучшена библиотека для создания графического интерфейса – Abstract Window Toolkit. В данной библиотеке была изменена система событий (AWT Event Model). В версии 1.0 система событий построена на наследовании. Это означает, что если пользователь совершит какое-то действие над интерфейсом, то оно поступит к связанному с этим событием методом, и он либо выполнит это действие, либо передаст его выше по иерархическому дереву. У данной системы есть множество недостатков, таких как необходимость создавать собственный подкласс для каждого события, сложность в использовании разных типов событий, из-за общности связанных с ними методов, и отсутствие фильтрации событий, что приводит к обращению даже к тем компонентам интерфейса, которые не могут обработать данное событие. Для решения данной проблемы в версии 1.1 система наследования была заменена на систему делегации (Delegation Model). Она основана на разделении всех событий на различные классы, для каждого из которых определены также различные методы выполнения событий. Данная система заметно проще предыдущей, и лишена многих её недостатков. Также в версии 1.1 была добавлена рефлексия (Reflection), возможность программы анализировать саму себя во время исполнения и ограниченно манипулировать своими компонентами, например, выводить на экран названия всех объектов и методов того или иного класса, и интерфейс подключения к базе данных Java (The Java Database Connectivity Application Programming Interface), который даёт возможность подключать к программе информацию из внешних баз данных.
+            </p>
+            <p>
+                В 1998 вышла версия Java 1.2, названная Java 2, вместе с которой были внесены изменения не только в язык программирования, но и формат выпуска языка. JDK был заменён на Java 2 Platform Special Edition, который состоял из самого стандартного издания J2SE, которая содержала в себе инструменты разработки портативных приложений для компьютеров и серверов, корпоративное издание Java 2 Platform Enterprise Edition, содержащее инструменты для создания крупномасштабных программ, и Java 2 Platform Micro Edition, содержащее средства создания приложений для мобильных устройств. В самом языке, основным представленным изменением стал новый инструмент создания графического интерфейса – Swing Graphical User Interface, который пришёл на смену AWT из прошлой версии.
+            </p>
+            <p>
+                Следующая версия Java 1.3 вышла в 2000 году. В ней была представлена новая виртуальная машина - Java HotSpot Virtual Machine, основной задачей которой являлась оптимизация выполнения программы. Ещё был введён интерфейс вызова удаленных методов (Remote Method Invocation), позволяющий использовать методы объекта, хранящегося на другом устройстве, интерфейс доступа к службам имен и каталогов (Java Naming and Directory Interface), использующийся в разработке больших коммерческих проектов и позволяющий систематизировать хранение множества объектов приложения, а также облегчить дальнейшую работу с ними. 
+            </p>
+            <p>
+                Версия Java 1.4 была выпущена в 2002 году и ввела поддержку нового интернет протокола IPv6, асинхронную или не блокируемую систему ввода и вывода, отличительной особенностью которой является продолжение выполнения заданного процесса во время вывода или ввода данных, что невозможно в системе с блокирующем вводом и выводом, потому что в ней выполняемы процесс будет приостановлен, до полного получения или отправки данных, интерфейс системы логирования (Java Logging API), то есть записи событий, происходящих с объектом, интерфейс ввода/вывода изображений (Image Input/Output API), позволяющий воздействовать на изображения с помощью кода Java.
+            </p>
+            <p>
+                Вместе с выходом следующей версии языка в 2004 году была изменена система именования версий, но изменение было не принципиальным. Изменилась форма записи номера версии, и теперь версия 1.5 носила номер 5.0. Впоследствии из номера убрали «.0», поэтому следующие версии имели названия Java 6, Java 7 и так далее. В самой Java 5.0 в язык добавили массу изменений, среди которых обобщения (Generics), добавляющие возможность создавать обобщённые классы, интерфейсы и типы, позволяющие использовать в них не заранее заданный тип данных, а определяемый при выполнении программы, аннотации (Annotations), то есть дополнительную информацию, которая не является частью программы, но несёт различную необходимую информацию о самой программе. Была добавлена система авто упаковки и распаковки, которая автоматически изменяет примитивные типы данных, такие как int, char и float, в соответствующие им объектные или типы, то есть в полноценные классы, с возможностью воздействия на них соответствующими методами, что невозможно для примитивных типов, и наоборот – объектные превращает в примитивные. Это сделано с целью упрощения работы с кодом программы.
+            </p>
+            <p>
+                Последней версией языка Java, выпущенной компанией Sun Microsystem, стала версия Java 6, выпущенная в 2006. В 2009 году американская корпорация Oracle поглотила Sun Microsystem, и дальнейшие версии языка Java выпускались уже ей. Сама версия не содержала новых функциональных изменений языка, а состояла из улучшения работоспособности языка, такие как улучшение работы компилятора, пользовательских интерфейсов разработки, системы подключения к базам данных и использования языком памяти устройства.
+            </p>
+            <p>
+                Седьмая версия языка Java вышла только в 2011 году. В новой версии было добавлены некоторые синтаксические функции языка, но, как и в прошлой версии, основные нововведения были внесены в платформу языка, то есть в комплект программного обеспечения, обеспечивающего возможность разработки и использования программ и приложений на данном языке. Среди этих нововведений было добавление поддержки виртуальной машиной Java динамических языков программирования, то есть возможность использовать в программе код языков программирования, которые позволяют определять типы данных переменных и функций, при выполнении программы, такие как PHP, Python, Smalltalk и JavaScript. Сам же язык программирования Java относиться к статичным языкам программирования, то есть типы данных в нём строго типизированы, и не могут быть изменены после определения переменной. Также была добавлена система сжатия указателей, что позволило уменьшить количество памяти, выделяемой на их хранение.
+            </p>
+            <p>
+                Последние крупные изменения в язык были внесены в версиях Java 8 и Java 9. После них, в основном, в язык вносились незначительные изменения, а также улучшения уже существующих возможностей языка. В восьмой версии языка была добавлена поддержка лямбда-выражений, являющимися безымянными классами и методами, которые позволяют упростить вызов и передачу параметров в другие методы. Другим важным добавлением стало добавление интерфейса Stream API, который больше инструментов для работы с коллекциями, то-есть со списками и массивами. Эти добавления вводят в Java элементы функционального программирования, то есть парадигмы программирования, основанной на математических функциях, которая часто противопоставляется объектно-ориентированному подходу к написанию программ. В 9 версии была добавлена поддержка протоколов передачи данных HTTP/2 и WebSocket, которые превосходили протокол HTTP 1.1, используемый в Java до этого. Вместе с поддержкой новых протоколов был добавлен новый интерфейс HTTP client API для работы с новыми протоколами. Другим нововведением стала возможность выполнять отдельно небольшой код языка Java и моментально получить результат без использования новых классов, благодаря утилите, то-есть вспомогательной программе, Jshell. Эта оболочка реализует в языке подход к организации интерактивной среды программирования REPL (Read-eval-print loop), который реализует в языке интерфейс командной строки. Последним важным элементом версии 9 стала система модулей Jigsaw, которая должна была появиться в языке ещё в версии 7. Эта система позволяет разбивать программу на модули, в зависимости от функционала. Реализация данной системы сильно изменяет структуру программы, а также позволяет более тонко настраивать иерархию и взаимодействие различных объектов.
+            </p>
+        </div>
+        <div>
+            <a class="prev" href="C2.html#icreators_C" align="center">Назад (C)</a>
+            <a class="next" href="Python2.html#icreators_Python" align="center">Далее (Python)</a>
+        </div>
+    </main>
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+               e.style.display = 'none';
+            else
+               e.style.display = 'block';
+        }
+     </script>
+     <script type="text/javascript">
+        function toggle_position(id) {
+            var x = document.getElementById(id);
+            if(x.style.margin == "0px 0px 0px 34vw")
+               x.style.margin = '0px 0px 0px 10vw';
+            else
+               x.style.margin = '0px 0px 0px 34vw';
+        }
+     </script>
+     <script type="text/javascript">
+        function toggle_position_2(id) {
+            var y = document.getElementById(id);
+            if(y.style.margin == "-8px 0px 100px 34vw")
+               y.style.margin = '-8px 0px 100px 10vw';
+            else
+               y.style.margin = '-8px 0px 100px 34vw';
+        }
+     </script>
+     <script type="text/javascript">
+        function toggle_width(id) {
+            var w = document.getElementById(id);
+            if(w.style.width == "63vw")
+               w.style.width = '80vw';
+            else
+               w.style.width = '63vw';
+        }
+     </script>
+    <div id="sources", class="down">
+        <h2 align="left">Источники информации:</h2>
+    </div>  
+</body>
+</html>

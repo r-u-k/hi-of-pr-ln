@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>История языка программирования C</title>
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <style>
+        html {
+        scroll-behavior: smooth;
+        }
+        .menu {
+            width: 33%;
+            height: 100vh;
+            margin-left: -10px;
+            margin-top: -10px;
+            float: left;
+            font-style: normal;
+            position: fixed;
+            border-right: 4px solid rgb(2, 76, 156);
+            box-sizing: content-box;
+            padding-bottom: 30px;
+            background: linear-gradient(to right, rgb(2, 76, 156) -4%, rgb(188, 215, 255) 7%);
+        }
+        .menu::-webkit-scrollbar{
+            width: 0px;
+        }
+        .menuhead {
+            margin-bottom: 30px;
+            border-bottom: 4px solid rgb(2, 76, 156);
+        }
+        .menu a {
+            background-color: rgb(197, 214, 240);
+            outline: 2px solid rgb(2, 76, 156);
+            color: rgb(0, 0, 0);
+            display: block;
+            box-sizing: border-box;
+            padding: 3px 15px;
+            font-size: 20pt;
+            margin-top: 10px;
+            margin-left: 7%;
+            margin-right: 7%;
+            border-radius: 10px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0px 0 10px;
+        }
+        .menu a:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_C{
+            color: rgb(0, 0, 0);
+            display: block;
+            box-sizing: border-box;
+            padding: 10px 15px;
+            outline: 4px solid rgb(2, 76, 156);
+            font-size: 25pt;
+            margin-top: 15px;
+            margin-left: 3%;
+            margin-right: 3%;
+            border-radius: 10pt;
+            cursor: pointer;
+            box-shadow: 0px 0 15px;
+            background-image: url(fon-С.png);
+            background-size: 100% 100%;
+            background-position: center center;
+        }
+        .menu_C:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_C.current{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_Java{
+            color: rgb(0, 0, 0);
+            display: block;
+            box-sizing: border-box;
+            padding: 10px 15px;
+            outline: 4px solid rgb(2, 76, 156);
+            font-size: 25pt;
+            margin-top: 20px;
+            margin-left: 3%;
+            margin-right: 3%;
+            border-radius: 10pt;
+            cursor: pointer;
+            box-shadow: 0px 0 15px;
+            background-image: url(fon-java.png);
+            background-size: 100% 100%;
+            background-position: center center;
+        }
+        .menu_Java:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_Java.current{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_Python{
+            color: rgb(0, 0, 0);
+            display: block;
+            box-sizing: border-box;
+            padding: 10px 15px;
+            outline: 4px solid rgb(2, 76, 156);
+            font-size: 25pt;
+            margin-top: 20px;
+            margin-left: 3%;
+            margin-right: 3%;
+            border-radius: 10pt;
+            cursor: pointer;
+            box-shadow: 0px 0 15px;
+            background-image: url(fon-python.png);
+            background-size: 100% 100%;
+            background-position: center center;
+        }
+        .menu_Python:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_Python.current{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu a.othlan {
+            padding: 10px 15px;
+            outline: 4px solid rgb(2, 76, 156);
+            font-size: 25pt;
+            margin-left: 3%;
+            margin-right: 3%;
+            margin-top: 15px;
+        }
+        .menu a.home{
+            height: 70px;
+            margin-top: 100px;
+            padding-top: 20px;
+            background: radial-gradient(70% 40%,rgb(255, 255, 255),rgb(188, 215, 255));
+        }
+        .hide{
+            display: none;
+        }
+        .hide + label ~ div{
+            display: block;
+        }
+        .hide:checked + label + div{
+            display: none;
+        }
+        .hide2{
+            display: none;
+        }
+        .hide2 + label ~ div{
+            display: none;
+        }
+        .hide2:checked + label + div{
+            display: block;
+        }
+        .pheader {
+            height: 80px;
+            border: 4px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-sizing: border-box;
+            position: fixed;
+            display: inline-block;
+            box-shadow: 0 0 15px;
+            background-image: url("header-fon-C.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        main {
+            box-sizing: border-box;
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-top: 80px;
+            padding-bottom: 20px;
+            background: linear-gradient(to right, rgb(188, 215, 255) 1%, #ffffff 10%, #ffffff 90%, rgba(188, 215, 255, 0.5) 99%);
+            text-shadow: none;
+        }
+        p {
+            text-indent: 25px;
+            font-size: 18pt;
+            text-align: justify;
+        }
+        body {
+            background-color: rgb(188, 215, 255);
+            background: linear-gradient(to right, rgb(188, 215, 255) 99%, rgb(2, 76, 156) 105%);
+        }
+        .down {
+            margin-left: 0px;
+            margin-top: auto;
+            width: 100%;
+            outline: 4px solid rgb(2, 76, 156);
+            display: none;
+        }
+        i{
+            position:absolute;
+            top: -99px;
+        }
+        section{
+            position:absolute;
+            top:-80px; 
+        }
+        .yakor{
+            margin-bottom:10px;
+            position:relative;
+        }
+        .cl_a_op{
+            display: inline-block;
+            position: absolute;
+            margin-left: 3vw;
+            margin-top: 20px;
+            width: 10vw;
+            height: 40px;
+            border: 2px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-shadow: 0 0 10px;
+            background: radial-gradient(70% 40%,rgb(255, 255, 255),rgb(188, 215, 255));
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .cl_a_op:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 2px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 15px;
+            text-shadow: 0 0 1px;
+        }
+        .to_top{
+            display: inline-block;
+            position: absolute;
+            right: 3vw;
+            margin-top: 20px;
+            width: 10vw;
+            height: 29px;
+            border: 2px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-shadow: 0 0 10px;
+            background: radial-gradient(70% 40%,rgb(255, 255, 255),rgb(188, 215, 255));
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+            cursor: pointer;
+            padding-top: 9px;
+            text-decoration: none;
+        }
+        .to_top:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 2px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 15px;
+            text-shadow: 0 0 1px;
+        }
+        .next{
+            display: block;
+            margin-left: 85%;
+            width: 10vw;
+            height: 29px;
+            border: 2px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-shadow: 0 0 10px;
+            background: radial-gradient(70% 40%,rgb(255, 255, 255),rgb(188, 215, 255));
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            cursor: pointer;
+            padding-top: 11px;
+            text-decoration: none;
+        }
+        .next:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 2px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 15px;
+            text-shadow: 0 0 1px;
+        }
+        img{
+            margin: 0px 0px 5px 30px;
+            outline: 3px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-shadow: 0 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu" style="overflow-y:scroll; display:none" id="p_menu">
+        <div class="menuhead">
+            <h1 align="center" style="font-size: 35pt; color: rgb(0, 0, 0);">Навигация</h1>
+        </div>
+        <input type="checkbox" id="ha1" class="hide">
+        <label for="ha1" class="menu_C current" align="center">История языка C</label>
+        <div>
+            <a href="#icreators_C">1. Создатели языка C</a>
+            <a href="#ireasons_C">2. Причины разработки языка C</a>
+            <a href="#ipredecessors_C">3. Языки предшественники</a>
+            <a href="#idevelopment_C">4. Развитие языка C</a>
+        </div>
+        <input type="checkbox" id="ha2" class="hide2">
+        <label for="ha2" class="menu_Java" align="center">История языка Java</label>
+        <div>
+            <a href="Java2.html#icreators_Java">1. Создатель языка Java</a>
+            <a href="Java2.html#ireasons_Java">2. Причины разработки языка Java</a>
+            <a href="Java2.html#ipredecessors_Java">3. Языки предшественники</a>
+            <a href="Java2.html#idevelopment_Java">4. Развитие языка Java</a>
+        </div>
+        <input type="checkbox" id="ha3" class="hide2">
+        <label for="ha3" class="menu_Python" align="center">История языка Python</label>
+        <div>
+            <a href="Python2.html#icreators_Python">1. Создатель языка Python</a>
+            <a href="Python2.html#ireasons_Python">2. Причины разработки языка Python</a>
+            <a href="Python2.html#ipredecessors_Python">3. Языки предшественники</a>
+            <a href="Python2.html#idevelopment_Python">4. Развитие языка Python</a>
+        </div>
+        <a class="home" href="index.html" align="center">Вводная страница</a>
+    </div>
+    <div class="pheader" id="p_name" style="margin: -8px 0px 100px 10vw; width: 80vw;">
+        <button class="cl_a_op" onclick="toggle_visibility('p_menu'); toggle_position('chapos'); toggle_position_2('p_name'); toggle_width('chapos'); toggle_width('p_name')">Навигация</button>
+        <a class="to_top" align="center" href="#icreators_C">Наверх</a>
+        <h1 align="center"><a name="history_C">История языка C</a></h1>
+    </div>
+    <main id="chapos" style="margin: 0px 0px 0px 10vw; width: 80vw;">
+        <p class="yakor">
+        <i id="icreators_C"></i>
+        <h2 align="center">Создатели языка C</h2>
+        </p>
+        <section id="creators_C"></section>
+        <div>
+            <img src="dennis-ritchie.jpg" alt="Здесь что-то должно быть" height="400px" title="Деннис Ритчи" style="float: right;">
+            <p>
+                Язык программирования C был разработан в Bell Telephone Laboratories, американском исследовательском центре, занимающимся исследованиями и разработками в области телекоммуникации и электронных систем, который появился как результат слияния инженерных и технических отделов компаний Western Electric и AT&T (American Telephone and Telegraph Company). Разработал язык сотрудник данного центра Деннис Макалистер Ритчи (Dennis MacAlistair Ritchie) во время работы с Кеннетом Томпсоном и группой других сотрудников над операционной системой Unix. Деннис Ритчи, родившийся 9 сентября 1941 года в Нью-Йорке, закончил Гарвард в 1963, позднее, в 1968 году, он защитил докторскую диссертацию на тему «Структура программы и вычислительная сложность» (в оригинале: Program Structure and Computational Complexity; Вычислительная сложность - это количественная характеристика, которая говорит о том, сколько времени, либо какой объём памяти потребуется для выполнения алгоритма.). В компании Bell Labs начал работать в 1967 году, и оставался в ней до выхода на пенсию в 2007 году. Умер 12 Октября 2011 года.
+            </p>
+            <p>
+                Необходимо так же сказать о вышеупомянутом Кеннету Лейну Томпсону (Kenneth Lane Thompson), основном разработчике операционной системы Unix, создавший язык программирования B, который Ритчи использовал как основу для языка C. Родился Кен 4 февраля 1943 года в Новом Орлеане, в 1965 году получил степень бакалавра, а в 1966 году – магистра, в области электротехники и информатике. В Bell Laboratories занимался разработкой операционной системы Multics (Multics operational system), некоторые идеи которой, впоследствии он воплотил в Unix.
+            </p>
+        </div>
+        <p class="yakor">
+        <i id="ireasons_C"></i>
+        <h2 align="center">Причины разработки языка C</h2>
+        </p>
+        <section id="reasons_C"></section>
+        <div>
+            <p>
+                Разработка языка C неразрывно связана с упомянутой ранее Unix, так как C был разработан именно для улучшения работы данной операционной системой. Как уже упоминалось выше, Unix является реализацией идей ОС Multics, которую с 1964 года совместно разрабатывали Массачусетский технологический институт (Massachusetts Institute of Technology), компания General Electric и Bell Telephone Laboratories в рамках проекта под названием Multiple Access Computers, начатого Массачусетским институтом в 1963 году. В 1969 Bell Labs прекращает работу над проектом. Группа разработчиков во главе с Кеном Томпсоном, Деннисом Ритчи и Дугласом Макилроем решают продолжить работу над ОС. Изначально работа велась на ассемблере мини-компьютера PDP-7. Впоследствии ядро Unix было переписано на языке B, созданном Кеном Томпсоном. После покупки компанией в 1970 году одной из первых моделей ЭВМ PDP-11 появилась потребность в новом языке для ОС, из-за несоответствия устройства ЭВМ и механизмов работы языка B. Данную проблему решил Ритчи, создав новый язык программирования C, на который в 1973 году было переписано ядро ОС.
+            </p>
+        </div>
+        <p class="yakor">
+        <i id="ipredecessors_C"></i>
+        <h2 align="center">Языки предшественники</h2>
+        </p>
+        <section id="predecessors_C"></section>
+        <div>
+            <img src="BCPL_syntax.png" alt="Здесь что-то должно быть" height="100px" title="Пример синтаксиса языка BCPL" style="float: right; margin-top: 10px;">
+            <p>
+                Как уже отмечалось выше, за основу языка C Деннис Ритчи взял созданный Кеном Томпсоном язык B, но также необходимо отметить язык BCPL (Basic Combined Programming Language), который создал Мартин Ричардс (Martin Richards) в 1966-1967 годах в Кембриджском университете (University of Cambridge). Этот язык оказал серьёзное влияние как на язык B, так и на язык C. Сам BCPL, как следует из его названия, является упрощённой версией языка программирования CPL (Combined Programming Language), из которого Мартин убрал затрудняющие компиляцию программы. Именно BCPL использовался для создания ОС Multics.
+            </p>
+            <img src="B_syntax.png" alt="Здесь что-то должно быть" height="180px" title="Пример синтаксиса языка B" style="float: right; margin-top: 10px;">
+            <p>
+                В 1969 году, после начала работы над Unix, Кен Томпсон решает создать язык программирования высокого уровня на замену ассемблера, для упрощения дальнейшей работы над ОС, а также повышения работоспособности программы. Язык B создавался на основе языка BCPL, но с синтаксическим изменениями и удалением ненужных, по мнению Кеннета, функций. Все изменения были призваны уменьшить вес программ, написанных с использованием B, так как на компьютере PDP-7, на котором проводилась разработка Unix, был крайне малый объём памяти.
+            </p>
+            <p>
+                Последующее создание языка C на основе этих двух языков было вызвано переносом разработки на более сложную ЭВМ PDP-17, который выявил недостатки общих ключевых особенностей B и BCPL, в первую очередь связанных с обработкой символов программы, которое оказалось нерационально усложнённым для вычислительной системы другого типа, а также общей низкой скоростью выполнения программы компилятором.
+            </p>
+        </div>
+        <p class="yakor">
+        <i id="idevelopment_C"></i>
+        <h2 align="center">Развитие языка C</h2>
+        </p>
+        <section id="development_C"></section>
+        <div>
+            <img src="C_syntax.png" alt="Здесь что-то должно быть" height="180px" title="Пример синтаксиса языка C" style="float: right; margin-top: 10px;">
+            <p>
+                Работа Денниса Ритчи над расширением и последующим преобразованием языка B в C началась в 1971 году. Первые версии C, не сильно отличавшиеся от B, носили название New B, или NB. Первым расширением, внесённым в язык, было добавление различных типов данных. BCPL и B были языками без типовыми. Все данные являются либо восьмеричными числами, причём чисел с плавающей точкой нет, либо символами из таблицы символов ASCII, а все арифметические операции являются целочисленными и не имеют проверки типа данных переменной, из-за чего возможны арифметические действия с символами, которые будут преобразовываться в соответствии со своими номерами в ASCII. В NB были добавлены типы int и char, для целочисленных и символьных данных соответственно. Так же была изменена система указателей – переменных, хранящих данные о расположении в памяти определённых функций. Если в B каждому указателю отводилось место в памяти, и каждый раз, когда происходило обращение к структуре или массиву, к которому тот относился, происходила конвертация символов имени указателя в битовый адрес ячейки данного указателя, которая в свою очередь и вела к необходимой структуре. Вместо этого в NB указатель не хранился в памяти, а генерировался, когда в выражении упоминалось имя соответствующей структуры или массива. Это позволило реализовать систему из произвольного количества вложенных друг в друга различных структур и массивов. В дальнейшем была введена возможность описать структуры, к которым относиться данный объект. Сделано это было с целью повышения удобства компоновки различных объектов. После добавления синтаксиса, соответствующего новым возможностям языка, а также создания компилятора, в 1972 году название языка, который уже сильно отличался от своего предшественника, было изменено с New B на C, с которым он и будет существовать в дальнейшем. Несколько позже, в 1973 году, в язык был добавлен препроцессор, что было сделано частично из-за наличия в языке BCPL схожего механизма включения файлов. Задачей данного препроцессора и была реализация возможности включения одних файлов в другие и в саму программу, а также подстановка строк, то есть возможность при компиляции заменять отдельные части исходного текста, на заранее заданные шаблоны. Изначальная ограниченность функционала препроцессора объясняется тем, что сначала он рассматривался исключительно как дополнение к языку, расширением возможностей которого было выполнено позже.
+            </p>
+            <img src="The_C_Programming_Language_First_Edition_Cover.png" alt="Здесь что-то должно быть" height="400px" title="Обложка книги язык программирования C" style="float: right; margin-top: 10px;">
+            <p>
+                Следующей важной ступенью развития языка C стало публикация в 1978 году книги «Язык программирования C» (The C Programming Language) написанной Деннисом Ритчи и Брайаном Керниганом, также известная как K&R, а версия C, описанная в ней, стала называться K&R C.Эта книга является справочником, описывающим все основные элементы функциональности языка, а также взаимодействия с ОС Unix. Фактически, данная книга стала первым стандартом языка C, показав пользователям официальный метод создания программ. К этому году в языке успели произойти некоторые изменения. Одним из изменений было добавление новых типов данных: беззнаковые, длинные unsigned long и unsigned long int, которые хранят целое число, превышающее максимальный количественный предел типа int, а именно более 2 байт, но меньше 4 байт, но являющееся большим или равным нулю, без возможности стать отрицательным; объединение union, которое позволяет хранить в одном участке памяти несколько переменных, различного типа; перечисление enum, задающее все возможные значения переменной. Основные изменения были связаны с улучшением переносимости языка, на новые платформы и улучшению работы системы типов. Для последнего в язык была внесена возможность приведения типов данных, то есть изменения типа данных переменной для выполнения операции, невозможной с предыдущим типом этой переменной. 
+            </p>
+            <p>
+                В 1983 году было принято решение создать официальную формальную стандартизацию для языка C. Вызвано это было тем, что книга K&R, которая больше всего походит на стандарт языка, уже не соответствовало требованиям времени. К примеру, в K&R не описывается тип данных void, который описывает функцию, не возвращающую, после исполнения, никакое значение. Для создания единого стандарта языка C Американский национальный институт стандартов (American national standards institute или ANSI) создал комитет X3J11, который в 1989 году представил выработанный стандарт, принятый Международной организацией по стандартам (International Organization for Standardization или ISO) в 1990.  Этот стандарт имел название ISO/IEC 9899-1990, а язык C, описанный в нём, известен как ANSI C или C90. Единственным важным изменением, внесённым в язык новым стандартом, была система ввода формальных параметров функции, заимствованная из языка программирования C++. В остальном язык остался практически неизменным. Следующие изменения произошли в языке в 2000 году, когда был принят стандарт ISO/IEC 9899-1999, или C99. Важным изменением, внесённым в новом стандарте, являлась возможность объявлять новые переменные в любом месте кода. Также к важным изменениям относится введение типа данных long long int, обозначающего целое число, превышающее по размеру 4 байта, но меньше 8 байт, и массивов переменной длины, то есть массива, длина которого определяется во время выполнения.
+            </p>
+            <p>
+                Последующими стандартами языка C являются ISO/IEC 9899-2011, или C11, и ISO/IEC 9899-2018, или C18. C11 направлен в основном на улучшения совместимости с современными компиляторами, для реализации таких возможностей, как многопоточность, то есть выполнения нескольких операций или программ одновременно. Также была введена возможность байтового выравнивания, то есть ограничения размера переменной диапазоном, равное 2n байт, где n задаётся либо вручную, в случае использования _Alignas, либо автоматически на этапе компиляции, при использовании _Alignof. Остальные изменения направлены на повышения удобства написания программ, такие как введения интерфейса проверки границ переменной, позволяющий до компиляции понять, не превышает ли значение в переменной максимально допустимый предел, и возможность создавать анонимные объединения и структуры, которые упрощают работу с вложенными объектами. C18 не вносит в язык новый функционал, а лишь исправляет ошибки в C11.
+            </p>
+        </div>
+        <a class="next" href="Java2.html#icreators_Java" align="center">К Java</a>
+    </main>
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+               e.style.display = 'none';
+            else
+               e.style.display = 'block';
+        }
+     </script>
+     <script type="text/javascript">
+        function toggle_position(id) {
+            var x = document.getElementById(id);
+            if(x.style.margin == "0px 0px 0px 34vw")
+               x.style.margin = '0px 0px 0px 10vw';
+            else
+               x.style.margin = '0px 0px 0px 34vw';
+        }
+     </script>
+     <script type="text/javascript">
+        function toggle_position_2(id) {
+            var y = document.getElementById(id);
+            if(y.style.margin == "-8px 0px 100px 34vw")
+               y.style.margin = '-8px 0px 100px 10vw';
+            else
+               y.style.margin = '-8px 0px 100px 34vw';
+        }
+     </script>
+     <script type="text/javascript">
+        function toggle_width(id) {
+            var w = document.getElementById(id);
+            if(w.style.width == "63vw")
+               w.style.width = '80vw';
+            else
+               w.style.width = '63vw';
+        }
+     </script>
+</body>
+<div id="sources", class="down">
+    <h2 align="left">Источники информации:</h2>
+</div> 
+</html>

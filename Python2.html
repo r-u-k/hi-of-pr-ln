@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ru">
+ <head>
+    <title>Python</title>
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+    <style>
+        html {
+        scroll-behavior: smooth;
+        }
+        .menu {
+            width: 33%;
+            height: 100vh;
+            margin-left: -10px;
+            margin-top: -10px;
+            float: left;
+            font-style: normal;
+            position: fixed;
+            border-right: 4px solid rgb(2, 76, 156);
+            box-sizing: content-box;
+            padding-bottom: 30px;
+            background: linear-gradient(to right, rgb(2, 76, 156) -4%, rgb(188, 215, 255) 7%);
+        }
+        .menu::-webkit-scrollbar{
+            width: 0px;
+        }
+        .menuhead {
+            margin-bottom: 30px;
+            border-bottom: 4px solid rgb(2, 76, 156);
+        }
+        .menu a {
+            background-color: rgb(197, 214, 240);
+            outline: 2px solid rgb(2, 76, 156);
+            color: rgb(0, 0, 0);
+            display: block;
+            box-sizing: border-box;
+            padding: 3px 15px;
+            font-size: 20pt;
+            margin-top: 10px;
+            margin-left: 7%;
+            margin-right: 7%;
+            border-radius: 10px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0px 0 10px;
+        }
+        .menu a:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_C{
+            color: rgb(0, 0, 0);
+            display: block;
+            box-sizing: border-box;
+            padding: 10px 15px;
+            outline: 4px solid rgb(2, 76, 156);
+            font-size: 25pt;
+            margin-top: 15px;
+            margin-left: 3%;
+            margin-right: 3%;
+            border-radius: 10pt;
+            cursor: pointer;
+            box-shadow: 0px 0 15px;
+            background-image: url(fon-С.png);
+            background-size: 100% 100%;
+            background-position: center center;
+        }
+        .menu_C:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_C.current{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_Java{
+            color: rgb(0, 0, 0);
+            display: block;
+            box-sizing: border-box;
+            padding: 10px 15px;
+            outline: 4px solid rgb(2, 76, 156);
+            font-size: 25pt;
+            margin-top: 20px;
+            margin-left: 3%;
+            margin-right: 3%;
+            border-radius: 10pt;
+            cursor: pointer;
+            box-shadow: 0px 0 15px;
+            background-image: url(fon-java.png);
+            background-size: 100% 100%;
+            background-position: center center;
+        }
+        .menu_Java:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_Java.current{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_Python{
+            color: rgb(0, 0, 0);
+            display: block;
+            box-sizing: border-box;
+            padding: 10px 15px;
+            outline: 4px solid rgb(2, 76, 156);
+            font-size: 25pt;
+            margin-top: 20px;
+            margin-left: 3%;
+            margin-right: 3%;
+            border-radius: 10pt;
+            cursor: pointer;
+            box-shadow: 0px 0 15px;
+            background-image: url(fon-python.png);
+            background-size: 100% 100%;
+            background-position: center center;
+        }
+        .menu_Python:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu_Python.current{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .menu a.othlan {
+            padding: 10px 15px;
+            outline: 4px solid rgb(2, 76, 156);
+            font-size: 25pt;
+            margin-left: 3%;
+            margin-right: 3%;
+            margin-top: 15px;
+        }
+        .menu a.home{
+            height: 70px;
+            margin-top: 100px;
+            padding-top: 20px;
+            background: radial-gradient(70% 40%,rgb(255, 255, 255),rgb(188, 215, 255));
+        }
+        .hide{
+            display: none;
+        }
+        .hide + label ~ div{
+            display: none;
+        }
+        .hide:checked + label + div{
+            display: block;
+        }
+        .hide2{
+            display: none;
+        }
+        .hide2 + label ~ div{
+            display: none;
+        }
+        .hide2:checked + label + div{
+            display: block;
+        }
+        .hide3{
+            display: none;
+        }
+        .hide3 + label ~ div{
+            display: block;
+        }
+        .hide3:checked + label + div{
+            display: none;
+        }
+        .pheader {
+            margin-left: 34vw;
+            margin-right: 0%;
+            margin-top: -8px;
+            margin-bottom: 100px;
+            height: 80px;
+            width: 63vw;
+            border: 4px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-sizing: border-box;
+            position: fixed;
+            display: inline-block;
+            box-shadow: 0 0 15px;
+            background-image: url("header-fon-Python.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        main {
+            box-sizing: border-box;
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-top: 80px;
+            padding-bottom: 20px;
+            background: linear-gradient(to right, rgb(188, 215, 255) 1%, #ffffff 10%, #ffffff 90%, rgba(188, 215, 255, 0.5) 99%);
+            text-shadow: none;
+        }
+        p {
+            text-indent: 25px;
+            font-size: 18pt;
+            text-align: justify;
+        }
+        body {
+            background-color: rgb(188, 215, 255);
+            background: linear-gradient(to right, rgb(188, 215, 255) 99%, rgb(2, 76, 156) 105%);
+        }
+        .down {
+            margin-left: 0px;
+            margin-top: auto;
+            width: 100%;
+            outline: 4px solid rgb(2, 76, 156);
+            display: none;
+        }
+        i{
+            position:absolute;
+            top:-80px;
+        }
+        section{
+            position:absolute;
+            top:-80px; 
+        }
+        .yakor{
+            margin-bottom:10px;
+            position:relative;
+        }
+        .cl_a_op{
+            display: inline-block;
+            position: absolute;
+            margin-left: 3vw;
+            margin-top: 20px;
+            width: 10vw;
+            height: 40px;
+            border: 2px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-shadow: 0 0 10px;
+            background: radial-gradient(70% 40%,rgb(255, 255, 255),rgb(188, 215, 255));
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .cl_a_op:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 4px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 30px;
+            text-shadow: 0 0 2px;
+        }
+        .to_top{
+            display: inline-block;
+            position: absolute;
+            right: 3vw;
+            margin-top: 20px;
+            width: 10vw;
+            height: 29px;
+            border: 2px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-shadow: 0 0 10px;
+            background: radial-gradient(70% 40%,rgb(255, 255, 255),rgb(188, 215, 255));
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            cursor: pointer;
+            padding-top: 11px;
+            text-decoration: none;
+        }
+        .to_top:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 2px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 15px;
+            text-shadow: 0 0 1px;
+        }
+        .prev{
+            display: inline-block;
+            margin-left: -3%;
+            margin-right: 0px;
+            width: 10vw;
+            height: 29px;
+            border: 2px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-shadow: 0 0 10px;
+            background: radial-gradient(70% 40%,rgb(255, 255, 255),rgb(188, 215, 255));
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            cursor: pointer;
+            padding-top: 11px;
+            text-decoration: none;
+        }
+        .prev:hover{
+            border: 0px solid rgb(161, 163, 16);
+            outline: 2px solid rgb(161, 163, 16);
+            color: rgb(161, 163, 16);
+            box-shadow: 0 0 15px;
+            text-shadow: 0 0 1px;
+        }
+        img{
+            margin: 0px 0px 0px 30px;
+            outline: 3px solid rgb(2, 76, 156);
+            border-radius: 10px;
+            box-shadow: 0 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu" style="overflow-y:scroll;display:none" id="p_menu" >
+        <div class="menuhead">
+            <h1 align="center" style="font-size: 35pt; color: rgb(0, 0, 0);">Навигация</h1>
+        </div>
+        <input type="checkbox" id="ha1" class="hide">
+        <label for="ha1" class="menu_C" align="center">История языка C</label>
+        <div>
+            <a href="C2.html#icreators_C">1. Создатели языка C</a>
+            <a href="C2.html#ireasons_C">2. Причины разработки языка C</a>
+            <a href="C2.html#ipredecessors_C">3. Языки предшественники</a>
+             <a href="C2.html#idevelopment_C">4. Развитие языка C</a>
+        </div>
+        <input type="checkbox" id="ha2" class="hide2">
+        <label for="ha2" class="menu_Java" align="center">История языка Java</label>
+        <div>
+            <a href="Java2.html#icreators_Java">1. Создатель языка Java</a>
+            <a href="Java2.html#ireasons_Java">2. Причины разработки языка Java</a>
+            <a href="Java2.html#ipredecessors_Java">3. Языки предшественники</a>
+            <a href="Java2.html#idevelopment_Java">4. Развитие языка Java</a>
+        </div>
+        <input type="checkbox" id="ha3" class="hide3">
+        <label for="ha3" class="menu_Python current" align="center">История языка Python</label>
+        <div>
+            <a href="Python2.html#icreators_Python">1. Создатель языка Python</a>
+            <a href="Python2.html#ireasons_Python">2. Причины разработки языка Python</a>
+            <a href="Python2.html#ipredecessors_Python">3. Языки предшественники</a>
+            <a href="Python2.html#idevelopment_Python">4. Развитие языка Python</a>
+        </div>
+        <a class="home" href="index.html" align="center">Вводная страница</a>
+    </div>
+    <div class="pheader" id="p_name" style="margin: -8px 0px 100px 10vw; width: 80vw;">
+        <button class="cl_a_op" onclick="toggle_visibility('p_menu'); toggle_position('chapos'); toggle_position_2('p_name'); toggle_width('chapos'); toggle_width('p_name')">Навигация</button>
+        <a class="to_top" align="center" href="#icreators_Python">Наверх</a>
+        <h1 align="center" style="margin-top: 8;"><a name="history_Python">История языка Python</a></h1>
+    </div>
+    <main id="chapos" style="margin: 0px 0px 0px 10vw; width: 80vw;">       
+        <p class="yakor">
+            <i id="icreators_Python"></i>
+            <h2 align="center">Создатель языка Java</h2>
+        </p>
+        <div>
+            <img src="guido-headshot-2019.jpg" alt="Здесь что-то должно быть" height="300px" title="Гвидо ван Россум" style="float: right;">
+            <p>
+                Язык программирования Python был создан в 1991 году голландским программистом Гвидо ван Россумом (Guido van Rossum) в «Центре математики и информатики» (Centrum Wiskunde & Informatica, или же Center for Mathematics and Computer Science) в Амстердаме. Родился Гвидо в городе небольшом Харлем (Haarlem). Обучался в «Амстердамском университете» (University of Amsterdam), где в 1982 году он получил магистерскую степень в области математики и компьютерных наук. В тот же год он устроился на работу в CWI и начал работу в составе группы, работавшей над разработкой языка программирования ABC. Работа над данным проектом продлилась до 1986 года, когда, после закрытия проекта, Гвидо присоединился к проекту Amoeba. Во время над этим проектом и был создан язык программирования Python. В дальнейшем Гвидо работал в «Национальном институте стандартов и технологий» (National Institute of Standards and Technology) в США. С 2000 года работал в различных компаниях над развитием языка Python. Параллельно этому с этим с 2005 года работал в компании Google в качестве разработчика, а с 2012 – в Dropbox Incorporated.
+            </p>
+        </div>
+        <p class="yakor">
+            <i id="ireasons_Python"></i>
+            <h2 align="center">Причины разработки языка Python</h2>
+        </p>
+        <div>
+            <img src="Amoeba.png" alt="Здесь что-то должно быть" height="250px" title="Схема работы ОС Amoeba" style="float: right;">
+            <p>
+                Идея создания языка программирования Python возникла у Гвидо ван Россума во время работы над проектом Amoeba. Amoeba – распределенная операционная система (Distributed Operating System), то есть операционная система, позволяющая объединять несколько устройств в единую систему, работающую как одно устройство. Разрабатывалась она в Амстердамском университете Врие (Vrije Universiteit Amsterdam), под руководством профессора Эндрю Стюарт Таненбаума. Первая версия Amoeba вышла в 1983 году ещё до присоединения Гвидо. Работа над проектом шла в сотрудничестве с «Центром математике и информатике», и одной из основных задач было наладить взаимодействие Amoeba с операционной системой Unix, из-за чего очень много работы проводилось с использованием языка программирования C. Язык программирования Python задумывался Гвидо как простой в использовании язык программирования, совмещающий в себе положительные черты как языка C, так и языка ABC. Создавался Python в качестве части инструмента программирования системы Amoeba, но конечным решением стало создание самостоятельного языка программирования.
+            </p>
+        </div>
+        <p class="yakor">
+            <i id="ipredecessors_Python"></i>
+            <h2 align="center">Языки предшественники</h2>
+        </p>
+        <div>
+            <img src="ABC_syntax.png" alt="Здесь что-то должно быть" height="150px" title="Пример синтаксиса языка ABC" style="float: right;">
+            <p>
+                Языками программирования, на основе которых создавался Python, были языки программирования C и ABC. Из этой пары языков отдельно стоит представить язык ABC. Данный язык разрабатывался в CWI с 1980 года, группой под руководством Лео Гертса (Leo Geurts), Ламберта Минтерсена (Lambert Guillaume Louis Théodore Meertens) и Стивена Пембертона (Steven Pemberton). Изначально язык разрабатывался в качестве современной замены языка программирования BASIC, который является языком для начинающих, а также простой замены языка программирования Pascal, служащего тем же целям. Именно в качестве языка для новичков, языка для обучения программированию, который просто и быстро изучается и очень лёгок в использовании, создавался язык ABC. И как раз из-за этого удобства в использовании его и выбрали, как одну из основ для языка Python. Из языка ABC были взяты такие вещи как группа операторов с помощью отступов, то есть в коде блоки разных функций разграничиваются не специальными символами, а отступом от края строки, структуры данных: списки, изменяемые группы элементов произвольных типов, и словари, группы элементов произвольных типов, в которых обращение к элементу осуществляется по заданному ключу, неизменяемые типы данных, к которым относятся целочисленный тип, тип числа с плавающей точкой, логический тип, строковый тип и кортеж, то есть список элементов, без возможности вносить в него изменения, и возможность не объявлять типы переменных, так как при выполнении их типы будут определены автоматически, в зависимости от способа использования переменной. Из языка C были взяты такие элементы, как ключевые слова, то есть специальные слова, являющиеся особой командой для интерпретатора, во время исполнения программы, а также операторы, то есть знаки, обозначающие определённые операции.
+            </p>
+        </div>
+        <p class="yakor">
+            <i id="idevelopment_Python"></i>
+            <h2 align="center">Развитие языка Python</h2>
+        </p>
+        <div>
+            <p>
+                Развитие языка Python началось в 1991 году, когда в новостной группе alt.sources была опубликована бета версия Python с номером 0.9.1. В дальнейшем язык бурно развивался и до текущего момента было выпущено около 26 версий языка, если считать только относительно крупные изменения, то есть версии 1.1.0, 1.2.0, 1.3.0 и так далее, потому что, если ещё брать в расчёт версии наподобие 3.8.3, 3.8.4, 3.8.5 и другие самостоятельные выпуски языка, которые просто вносят дополнения в более крупные версии, то таких версий языка будет более 160 штук. Но глобальных версий языка Python всего 3, а именно Python 1, состоящий из версий с 1.0 по 1.6 и поддерживаемый с 1994 по 2000 года, Python 2, первая версия которого, 2.0, была выпущена в 2000 году, а последняя версия 2.7 поддерживалась до 2020 года, и Python 3, который и является самой современной и актуальной на данный момент версией языка, выпущенной в 2008 году под номером 3.0.
+            </p>
+            <p>
+                В бета версии 0.9.0, кроме основных, необходимых для базового функционирования языка, таких как типы данных и операторы, уже были такие возможности, как обработка исключений (exception handling), то есть возможность задать программе определённую реакцию на отклонение от нормальной работы, и элементы объектно-ориентированного программирования, а именно наследование классов – возможность новому классу обладать свойствами заранее определённого другого класса. В версии Python 1, к уже имеющемуся функционалу языка, были добавлены такие элементы функционального программирования, как лямбда функции, которые являются небольшими анонимными функциями, определяемые и вызываемые в одной и той же строке, без указания их имени, функцию map, которая позволяет применить переданную ей функцию ко всем элементам заданного массива, а также возможность отсеивать неподходящие под заданные условия элементы с помощью функции filter. Позднее в язык были добавлены именные аргументы из языка программирования Modula-3, основной отличительной особенностью которых является возможность передавать их в соответствующую функцию в произвольном порядке, с помощью указания их имени. В то же время в языке появилась возможность проводить арифметические операции над комплексными числами.
+            </p>
+            <p>
+                В Python 2 был добавлен механизм спискового включения, который является синтаксической конструкцией для более компактного определения списка в коде программы. Другим нововведением стало добавление строковому типу данных возможности использовать двухбайтовую кодировку символов стандарта Unicode, что сильно расширило список используемых символов, в том числе добавило буквы русского алфавита. В этой версии также был изменён механизм так называемой системы сбора мусора, то есть система автоматического освобождения памяти вычислительного устройства от более не используемых программой объектов. Другим полезным нововведением стали расширенные операторы присваивания, которые используются, когда требуется присвоить результат операции переменной, которая участвует в данной операции. Важным добавлением в язык стала возможность создавать классы и подклассы встроенных в язык типов, а также определять статические методы, которые относятся к определённому классу, но не могут изменять объекты внутри класса, и метода класса, которые относятся к конкретному классу и могут менять его состояние, а следовательно – все объекты внутри данного класса, но не могут менять объекты выборочно. Это важные дополнения, направленные на становление языка Python объектно-ориентированным.
+            </p>
+            <p>
+                Версия Python 3 внесла существенные изменения в язык, в связи с которыми новая версия не совместима с Python 2, то есть программа, написанная на старой версии, не будет функционировать на новой и наоборот. При этом, в основном, язык остался тем же, но механизмы работы многих элементов языка изменились. Например, оператор print, который отвечал за вывод в Python 2, был заменён на функцию print(), что привело к сильному изменению синтаксиса. Другим примером является изменение способа хранения текстовых и двоичных данных. Если в Python 2 текстовые данные хранились как строки Unicode, а бинарные – как 8-битовые строки, то в Python 3 они изменились на строчный тип данных str, в котором все символы уже являются символами кодировки Unicode, и тип хранения двоичных данных bytes, соответственно. Это изменение в первую очередь выразилось в том, что любая попытка совместить текстовые и двоичные данные приведёт к ошибке работы программы, чего в большинстве случаев не случалось в Python 2.  
+            </p>
+        </div>
+        <a class="prev" href="Java2.html#icreators_Java" align="center">Назад (Java)</a>
+    </main>
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+               e.style.display = 'none';
+            else
+               e.style.display = 'block';
+        }
+     </script>
+     <script type="text/javascript">
+        function toggle_position(id) {
+            var x = document.getElementById(id);
+            if(x.style.margin == "0px 0px 0px 34vw")
+               x.style.margin = '0px 0px 0px 10vw';
+            else
+               x.style.margin = '0px 0px 0px 34vw';
+        }
+     </script>
+     <script type="text/javascript">
+        function toggle_position_2(id) {
+            var y = document.getElementById(id);
+            if(y.style.margin == "-8px 0px 100px 34vw")
+               y.style.margin = '-8px 0px 100px 10vw';
+            else
+               y.style.margin = '-8px 0px 100px 34vw';
+        }
+     </script>
+     <script type="text/javascript">
+        function toggle_width(id) {
+            var w = document.getElementById(id);
+            if(w.style.width == "63vw")
+               w.style.width = '80vw';
+            else
+               w.style.width = '63vw';
+        }
+     </script>
+    <div id="sources", class="down">
+        <h2 align="left">Источники информации:</h2>
+    </div> 
+</body>       
+</html>
